@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5edaa39378b12418cf17ade8c44fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   health: 3
   speed: 1
   interactiveUnit: {fileID: 259202552561173150}
@@ -142,10 +144,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  sprite: {fileID: 1046170140789791398}
   unit: {fileID: 6166512095997223323}
   spriteRenderer: {fileID: 1046170140789791398}
   boxCollider: {fileID: 4451554809706775257}
+  gridManagerObject: {fileID: 0}
   gridManager: {fileID: 7985174517056980717, guid: 112be7a1260f5214ba40512b62f88d29, type: 3}
   baseHex: {fileID: 0}
 --- !u!114 &1661379974746220384

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Soldier : MonoBehaviour
+public class Soldier : NetworkBehaviour
 {
     public int health;
     public int speed;
@@ -17,6 +18,22 @@ public class Soldier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //cmdSyncSoldierPosition(transform.position);
     }
+    
+    [Command]
+    private void cmdSyncSoldierPosition(Vector3 currentPos)
+    {
+        ServerSyncSoldierPos(currentPos);
+    }
+
+    [ClientRpc]
+    private void ServerSyncSoldierPos(Vector3 currentPos)
+    {
+        if(!isLocalPlayer)
+        {
+            transform.position = currentPos;
+        }
+    }
+
 }

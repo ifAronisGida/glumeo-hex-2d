@@ -29,16 +29,15 @@ public class InteractiveHex : MonoBehaviour
             hex.HighlightSelf();
         }
 
-        //if (gridManager.isSelectionActive && hex.isPossibleDestination)
-        //{
+        if (gridManager.isSelectionActive && hex.isPossibleDestination)
+        {
 
-        //    var hexPosition = hex.transform.position;
-        //    hexPosition.z += 1;
-        //    gridManager.SelectedUnit.transform.position = hexPosition;
+            var hexPosition = hex.transform.position;
+            hexPosition.z += 1;
+            gridManager.selectedUnit.transform.position = hexPosition;
+            gridManager.selectedUnit.GetComponent<InteractiveUnit>().SetUnitPosition(false);
 
-        //    gridManager.SelectedUnit.transform.SetParent(hex.transform);
-        //    gridManager.SelectedUnit.interactiveUnit.UpdateBaseHex();
-        //}
+        }
 
     }
 
@@ -50,15 +49,17 @@ public class InteractiveHex : MonoBehaviour
         }
     }
 
-    //public void OnMouseDown()
-    //{
-    //    if (gridManager.IsSelectionActive && hex.IsPossibleDestination)
-    //    {
-    //        var hexPosition = hex.transform.position;
-    //        hexPosition.z -= 1;
-    //        gridManager.SelectedUnit.transform.position = hexPosition;
-    //        gridManager.IsSelectionActive = false;
-    //        gridManager.ResetMovement();
-    //    }
-    //}
+    public void OnMouseDown()
+    {
+        if (gridManager.isSelectionActive && hex.isPossibleDestination)
+        {
+
+            var hexPosition = hex.transform.position;
+            hexPosition.z -= 2;
+            gridManager.selectedUnit.GetComponent<InteractiveUnit>().SetUnitPosition(false);
+            gridManager.selectedUnit.transform.position = hexPosition;
+            gridManager.isSelectionActive = false;
+            gridManager.ResetMovement();
+        }
+    }
 }

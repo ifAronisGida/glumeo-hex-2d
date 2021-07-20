@@ -6,10 +6,9 @@ using Mirror;
 public class GridManager : NetworkBehaviour
 {
     public Hex[] allHice;
-    public Soldier selectedUnits;
+    public Soldier selectedUnit;
 
     public bool isSelectionActive;
-    public PlayerManager playerManager;
 
     private void Awake()
     {
@@ -52,13 +51,13 @@ public class GridManager : NetworkBehaviour
         }
     }
 
-    //public void ResetMovement()
-    //{
-    //    foreach (Hex hex in AllHice)
-    //    {
-    //        hex.RevertHightligh();
-    //        hex.IsPossibleDestination = false;
-    //    }
-    //}
+    public void ResetMovement()
+    {
+        foreach (Hex hex in allHice)
+        {
+            hex.RevertHightligh();
+            hex.isPossibleDestination = false;
+        }
+    }
 
 }
